@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KurdStream</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <input id="searchInput" placeholder="گەڕان بۆ فیلم و دراما...">
+  <div class="logo">KurdStream</div>
+  <button class="nav-btn" id="settingsBtn">⚙️</button>
+  <button class="nav-btn accent hidden" id="adminBtn">ئەدمین</button>
+  <button class="nav-btn" id="authBtn">چوونەژوورەوە</button>
+</nav>
+
+<div class="filters">
+  <select id="categoryFilter">
+    <option value="">هەموو جۆرەکان</option>
+    <option value="Movie">فیلم</option>
+    <option value="Series">دراما</option>
+  </select>
+  <select id="genreFilter">
+    <option value="">هەموو ژانرەکان</option>
+    <option value="Action">ئاکشن</option>
+    <option value="Drama">دراما</option>
+    <option value="Comedy">کۆمیدی</option>
+    <option value="Romance">ڕۆمانسی</option>
+    <option value="Horror">ترسناک</option>
+  </select>
+  <select id="sortFilter">
+    <option value="">ڕیزبەندی نوێ</option>
+    <option value="popular">زۆرترین سەیرکراو</option>
+    <option value="rating">باشترین هەڵسەنگاندن</option>
+    <option value="newest">ساڵی نوێ</option>
+  </select>
+</div>
+
+<div id="recommendedSection" class="hidden">
+  <div class="section-title">پێشنیارکراو بۆ تۆ</div>
+  <div class="grid" id="recommendedGrid"></div>
+</div>
+
+<div class="section-title">هەموو فیلمەکان</div>
+<div class="grid" id="moviesGrid"></div>
+
+<!-- Auth Modal -->
+<div class="overlay" id="authOverlay">
+  <div class="modal">
+    <button class="close-btn" onclick="closeOverlay('authOverlay')">✕</button>
+    <h2 id="authTitle">چوونەژوورەوە</h2>
+    <input id="regName" placeholder="ناو" class="hidden">
+    <input id="authEmail" placeholder="ئیمەیڵ">
+    <input id="authPassword" type="password" placeholder="وشەی نهێنی">
+    <button class="primary" id="authSubmitBtn">چوونەژوورەوە</button>
+    <div class="switch-link">
+      <span id="authSwitchText">ئەکاونتت نییە؟ <span id="authSwitchLink">تۆماربوون</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- Movie Detail Modal -->
+<div class="overlay" id="movieOverlay">
+  <div class="modal" id="movieModalContent"></div>
+</div>
+
+<!-- Settings Modal -->
+<div class="overlay" id="settingsOverlay">
+  <div class="modal">
+    <button class="close-btn" onclick="closeOverlay('settingsOverlay')">✕</button>
+    <h2>ڕەنگی وێبسایت</h2>
+    <div id="colorPicker"></div>
+  </div>
+</div>
+
+<!-- Admin Panel Modal -->
+<div class="overlay" id="adminOverlay">
+  <div class="modal">
+    <button class="close-btn" onclick="closeOverlay('adminOverlay')">✕</button>
+    <h2>پانێڵی ئەدمین</h2>
+    <h3 style="margin-top:14px;">زیادکردنی فیلم/دراما</h3>
+    <input id="mTitle" placeholder="ناونیشان">
+    <textarea id="mDesc" placeholder="کورتە" rows="3"></textarea>
+    <input id="mPoster" placeholder="لینکی پۆستەر (وێنە)">
+    <input id="mBanner" placeholder="لینکی بانەر (وێنە)">
+    <select id="mCategory">
+      <option value="Movie">فیلم</option>
+      <option value="Series">دراما</option>
+    </select>
+    <input id="mGenres" placeholder="ژانرەکان (بە کۆما: Action,Drama)">
+    <input id="mYear" placeholder="ساڵی بڵاوکردنەوە" type="number">
+    <input id="mRating" placeholder="هەڵسەنگاندن (0-10)" type="number" step="0.1">
+    <input id="mVideo" placeholder="لینکی ڤیدیۆ">
+    <button class="primary" id="addMovieBtn">زیادکردن</button>
+
+    <h3 style="margin-top:20px;">فیلمە هەبووەکان</h3>
+    <div id="adminMoviesList"></div>
+
+    <div id="superadminSection" class="hidden">
+      <h3 style="margin-top:20px;">بەڕێوەبردنی بەکارهێنەران</h3>
+      <div id="usersList"></div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #16161d;
+  --bg-card: #1e1e28;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a8;
+  --accent-color: #e50914;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+  padding-bottom: 60px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+.logo { color: var(--accent-color); font-weight: 800; font-size: 20px; margin-left: auto; order: 2; }
+
+#searchInput {
+  flex: 1;
+  min-width: 120px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  order: 1;
+}
+
+.nav-btn {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  order: 3;
+}
+
+.nav-btn.accent { background: var(--accent-color); }
+
+.filters {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  overflow-x: auto;
+}
+.filters select {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.section-title {
+  padding: 16px 16px 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 0 16px 16px;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.card:active { transform: scale(0.96); }
+.card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  background: #2a2a35;
+}
+.card .info { padding: 8px; }
+.card .title { font-size: 13px; font-weight: 600; }
+.card .meta { font-size: 11px; color: var(--text-secondary); }
+.card .rating { color: var(--accent-color); font-weight: 700; }
+
+/* Modal */
+.overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 100;
+  align-items: flex-end;
+  justify-content: center;
+}
+.overlay.active { display: flex; }
+.modal {
+  background: var(--bg-secondary);
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px 16px 0 0;
+  padding: 20px;
+}
+
+.modal h2 { margin-bottom: 10px; }
+.modal .desc { color: var(--text-secondary); font-size: 14px; margin: 10px 0; line-height: 1.5; }
+.modal img.banner { width: 100%; border-radius: 10px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 10px; background: #2a2a35;}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: none;
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+button.primary {
+  width: 100%;
+  padding: 12px;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.switch-link { text-align: center; margin-top: 10px; color: var(--text-secondary); font-size: 13px; }
+.switch-link span { color: var(--accent-color); cursor: pointer; }
+
+.close-btn {
+  float: right;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.color-dot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.color-dot.selected { border-color: #fff; }
+
+.admin-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-card);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.admin-row button {
+  background: var(--accent-color);
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-left: 6px;
+}
+.badge {
+  font-size: 10px;
+  background: var(--accent-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+.hidden { display: none !important; }
