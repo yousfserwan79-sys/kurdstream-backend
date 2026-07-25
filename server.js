@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const USERS_FILE = path.join(__dirname, 'users.json');
-const MOVIES_FILE = path.join(__dirname, 'movies.json');
+const MOVIES_FILE = path.join(DATA_DIR, 'movies.json');
 
 if (!fs.existsSync(USERS_FILE)) fs.writeFileSync(USERS_FILE, JSON.stringify([], null, 2));
 if (!fs.existsSync(MOVIES_FILE)) fs.writeFileSync(MOVIES_FILE, JSON.stringify([], null, 2));
