@@ -319,4 +319,4 @@ app.put('/api/admin/users/:id/role', auth, requireSuperAdmin, (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`KurdStream Server running on http://localhost:${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`KurdStream Server running on port ${PORT}`));
